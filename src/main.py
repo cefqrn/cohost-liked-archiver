@@ -80,8 +80,6 @@ def parse_data(s):
     return data
 
 
-
-
 def rate_limit(limit: float):
     """
     prevent function from getting called
@@ -108,6 +106,7 @@ def rate_limit(limit: float):
 
     return inner
 
+
 @rate_limit(REQUEST_RATE)
 def get_interval(cookie: str, start: int):
     url = f"https://cohost.org/rc/liked-posts?refTimestamp=1735491600000&skipPosts={start}"
@@ -121,6 +120,7 @@ def get_interval(cookie: str, start: int):
             return f.read().decode()
     except HTTPError as e:
         raise DataNotFoundError(f"failed to fetch data (http status: {e.code})") from e
+
 
 def get_posts(cookie: str, start: int=0):
     for skip in count(start, SKIP_INTERVAL):
