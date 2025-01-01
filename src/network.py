@@ -11,7 +11,7 @@ REQUEST_RATE = 1.0
 ATTEMPT_COUNT = 3
 
 # user agent used in requests
-USER_AGENT = "github.com/cefqrn/cohost-archiver"
+USER_AGENT = "github.com/cefqrn/cohost-liked-archiver"
 
 
 class DataNotFoundError(ValueError): ...
