@@ -1,3 +1,8 @@
 .cookie
 *.json
 
+attachment
+avatar
+posts
+
+__pycache__
