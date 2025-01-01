@@ -25,13 +25,7 @@ def get_filename(url):
     return m[0]
 
 
-cookie = Path(".cookie").read_text().strip()
-
-with INPUT_FILE.open() as f:
-    posts = load(f)
-
-attachments = set()
-for post in posts:
+def handle_post(post):
     for block in post["blocks"]:
         match t := block["type"]:
             case "attachment":
@@ -48,6 +42,19 @@ for post in posts:
                     attachments.add("https://" + url)
             case _:
                 raise ValueError(f"unknown block type: {t}")
+
+
+
+cookie = Path(".cookie").read_text().strip()
+
+with INPUT_FILE.open() as f:
+    posts = load(f)
+
+attachments = set()
+for post in posts:
+    handle_post(post)
+    for shared_post in post["shareTree"]:
+        handle_post(shared_post)
 
 written = 0
 for attachment in sorted(attachments):
