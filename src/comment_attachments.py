@@ -69,6 +69,7 @@ try:
         response = load(f)
 except Exception as e:
     print("could not decode", argv[1], "error:", e)
+    exit(1)
 
 # ignore if error
 if (result := response.get("result")) is None:
