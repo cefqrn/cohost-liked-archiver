@@ -101,7 +101,7 @@ def rate_limit(limit: float):
             if elapsed < limit:
                 sleep(limit - elapsed)
 
-            last_call = current_time
+            last_call = time()
 
             return f(*args, **kwargs)
 
