@@ -19,9 +19,6 @@ def get_filename(url):
 
 cookie = Path(".cookie").read_text().strip()
 
-with open(".cookie") as f:
-    cookie = f.read().strip()
-
 with INPUT_FILE.open() as f:
     posts = load(f)
 
