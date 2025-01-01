@@ -65,15 +65,15 @@ def download(cookie: str, url: str) -> bytes:
 
 
 def try_download(cookie: str, url: str):
-    print("downloading", url)
+    print("\x1b[Kdownloading", url, end='\r')
     for retry_count in range(ATTEMPT_COUNT):
         if retry_count:
-            print("retrying...")
+            print("retrying... ")
 
         try:
             return download(cookie, url)
         except DataNotFoundError as e:
-            print("failed to fetch data:", e)
+            print((retry_count == 0)*'\n' + "failed:", e)
             continue
 
     print("could not download", url)
