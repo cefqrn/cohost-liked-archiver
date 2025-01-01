@@ -1,5 +1,5 @@
 ## instructions
-1. paste cookie into a file named `.cookie`
+1. paste cookie (`connect.sid=[...]`) into a file named `.cookie`
 2. run scripts from the main directory (not src)
 
 ## requirements
