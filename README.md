@@ -43,6 +43,6 @@ $ python3 src/liked.py
 [...]
 $ python3 src/posts.py liked.json
 [...]
-$ xargs posts -type f -exec python3 src/comment_attachments.py {} \;
+$ find posts -type f -exec python3 src/comment_attachments.py {} \;
 [...]
 ```
